@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: running-deployment
+spec:
+  selector:
+    matchLabels:
+      app: running-app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: running-app
+    spec:
+      containers:
+      - name: running-app
+        image: kozijakinfo/run-app:1.0
+        ports:
+          - containerPort: 8080
+
