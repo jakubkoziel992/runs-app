@@ -18,9 +18,16 @@ spec:
       labels:
         app: running-app
     spec:
+      volumes:
+        - name: running-volume
+          persistentVolumeClaim:
+            claimName: ps-pvc
       containers:
       - name: running-app
         image: kozijakinfo/run-app:1.0
         ports:
           - containerPort: 8080
+        volumeMounts:
+          - mountPath: /var/tmp/
+            name: running-volume
 
