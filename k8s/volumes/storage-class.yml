@@ -3,6 +3,7 @@ kind: StorageClass
 metadata:
   name: google-storage
 provisioner: kubernetes.io/gce-pd
+volumeBindingMode: WaitForFirstConsumer
 parameters:
   type: pd-standard
   fstype: ext4
