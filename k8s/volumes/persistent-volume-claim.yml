@@ -5,8 +5,7 @@ metadata:
 spec:
   accessModes:
   - ReadWriteOnce
-  storageClassName: "standard"
-  volumeName: persistent-volume
+  storageClassName: "google-storage"
   resources:
     requests:
-      storage: 5Gi
+      storage: 1Gi
