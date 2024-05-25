@@ -17,13 +17,15 @@ spec:
       labels:
         app: running-app
     spec:
-      volumes:
-        - name: running-volume
-          persistentVolumeClaim:
-            claimName: ps-pvc
+      #volumes:
+      #  - name: running-volume
+      #    persistentVolumeClaim:
+      #      claimName: ps-pvc
+      securityContext:
+        runAsNonRoot: true
       containers:
       - name: running-app
-        image: kozijakinfo/run-app:1.0
+        image: kozijakinfo/run-app:2.0
         ports:
           - containerPort: 8080
         resources:
@@ -33,7 +35,7 @@ spec:
           limits:
             cpu: 800m
             memory: 600Mi
-        volumeMounts:
-          - mountPath: /var/tmp/
-            name: running-volume
+              # volumeMounts:
+              #- mountPath: /var/tmp/
+              #name: running-volume
 
