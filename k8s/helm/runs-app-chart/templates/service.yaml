@@ -4,6 +4,7 @@ metadata:
   name: {{ include "runs-app-chart.fullname" . }}
   labels:
     {{- include "runs-app-chart.labels" . | nindent 4 }}
+    {{- include "runs-app-chart.selectorLabels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
