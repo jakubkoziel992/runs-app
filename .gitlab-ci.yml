@@ -25,6 +25,6 @@ deploy:
     - kubectl config set-credentials gitlab --token="${TOKEN}"
     - kubectl config set-context default --cluster=k8s --user=gitlab
     - kubectl config use-context default
-    - sed -i "s/run-app:2.0/${CI_COMMIT_SHORT_SHA}/g" ./CI-CD/running-app-deployment.yml
-    - sed -i "s|kozijakinfo/|${CI_REGISTRY_IMAGE}/runs-app:|g" ./CI-CD/running-app-deployment.yml
+    - sed -i "s/<VERSION>/${CI_COMMIT_SHORT_SHA}/g" ./CI-CD/running-app-deployment.yml
+    - sed -i "s|<IMAGE>|${CI_REGISTRY_IMAGE}/runs-app|g" ./CI-CD/running-app-deployment.yml
     - kubectl apply -f ./CI-CD/running-app-deployment.yml

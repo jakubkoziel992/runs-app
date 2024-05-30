@@ -28,7 +28,7 @@ spec:
       automountServiceAccountToken: false
       containers:
       - name: running-app
-        image: kozijakinfo/run-app:2.0
+        image: <IMAGE>:<VERSION>
         ports:
           - containerPort: 8080
         resources:
