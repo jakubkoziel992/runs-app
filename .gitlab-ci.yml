@@ -1,5 +1,6 @@
 stages:
   - build
+  - deploy
 
 
 build:
@@ -13,4 +14,17 @@ build:
     - docker image build -t $CI_REGISTRY_IMAGE/runs-app:$CI_COMMIT_SHORT_SHA -t $CI_REGISTRY_IMAGE/runs-app:latest .
     - docker image push $CI_REGISTRY_IMAGE/runs-app:$CI_COMMIT_SHORT_SHA
     - docker image push $CI_REGISTRY_IMAGE/runs-app:latest
-  
+
+deploy:
+  stage: deploy
+  only:
+    - master
+  image: dtzar/-helm-kubectl
+  script:
+    - kubectl config set-cluster k8s --server="${KUBERNETES_SERVER}" --certificate-authority=$CERTIFICATE_AUTHORITY --embed-certs=true
+    - kubectl config set-credentials gitlab --token="${TOKEN}"
+    - kubectl config set-context default --cluster=k8s --user=gitlab
+    - kubectl config use-context default
+    - sed -i "s/run-app:2.0/${CI_COMMIT_SHORT_SHA}/g" ./CI-CD/running-app-deployment.yml
+    - sed -i "s#kozijakinfo#${CI_REGISTRY_IMAGE}/runs-app#g" ./CI-CD/running-app-deployment.yml
+    - kubectl apply -f ./k8s/running-app-deployment.yml
