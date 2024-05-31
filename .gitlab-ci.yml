@@ -20,7 +20,7 @@ deploy:
     - master
   image: dtzar/helm-kubectl
   script:
-    - kubectl config set-cluster k8s --server="${KUBERNETES_SERVER}" --certificate-authority=$CERTIFICATE_AUTHORITY --embed-certs=true
+    - kubectl config set-cluster k8s --server="${KUBERNETES_SERVER}" --certificate-authority="$CERTIFICATE_AUTHORITY" --embed-certs=true
     - kubectl config set-credentials gitlab --token="${TOKEN}"
     - kubectl config set-context default --cluster=k8s --user=gitlab
     - kubectl config use-context default
