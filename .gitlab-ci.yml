@@ -17,7 +17,7 @@ build:
 deploy:
   stage: deploy
   only:
-    - main
+    - master
   image: dtzar/helm-kubectl
   script:
     - kubectl config set-cluster k8s --server="${KUBERNETES_SERVER}" --certificate-authority="${CERTIFICATE_AUTHORITY}" --embed-certs=true
