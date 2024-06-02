@@ -17,6 +17,8 @@ spec:
       labels:
         app: running-app
     spec:
+      imagePullSecrets:
+        - name: gitlabrunningsecret
       #volumes:
       #  - name: running-volume
       #    persistentVolumeClaim:
