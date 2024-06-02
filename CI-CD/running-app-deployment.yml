@@ -21,8 +21,6 @@ spec:
       #  - name: running-volume
       #    persistentVolumeClaim:
       #      claimName: ps-pvc
-      imagePullSecrets:
-        - name: gitlabrunning-secret
       securityContext:
         runAsNonRoot: true
         runAsUser: 500
