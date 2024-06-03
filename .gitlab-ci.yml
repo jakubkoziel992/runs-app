@@ -1,5 +1,5 @@
 variables:
-  IMAGE_NAME=runs-app
+  IMAGE_NAME: runs-app
 
 stages:
   - build
