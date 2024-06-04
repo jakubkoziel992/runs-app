@@ -36,10 +36,11 @@ To check that the container has been created correctly and is working, use the f
 ```
 docker container ls
 ```
-Command's output should be similat to:
+Command's output should be similar to:
 ![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/container_ls.png)
 
 The application will be available in your browser at [http://localhost:8080](http://localhost:8080)
+![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/application.png)
 
 2.Deploy the application on Kubernetes cluster.
 All work releted to Kubernetes has been done using Google Kubernetes Engine.
