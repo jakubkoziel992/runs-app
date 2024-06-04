@@ -36,6 +36,8 @@ To check that the container has been created correctly and is working, use the f
 ```
 docker container ls
 ```
+Command's output should be similat to:
+![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/container_ls.png)
 
 The application will be available in your browser at [http://localhost:8080](http://localhost:8080)
 
