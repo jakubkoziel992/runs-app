@@ -27,12 +27,25 @@ The project has included the following steps:
 
 The application's image is available on [DockerHub](https://hub.docker.com/r/kozijakinfo/run-app/tags). To run the container with the application, use the below command:
 
-```docker container run -d --name running-app --rm -p 8080:8080 kozijakinfo/run-app:2.0```
+```docker container run -d --name running-app --rm -p 8080:8080 kozijakinfo/run-app:2.0```\
 To check that the container has been created correctly and is working, use the following command:
 
 ```docker container ls```
 
-The application will be available in your browser at [http://localhost:8080]
+The application will be available in your browser at [http://localhost:8080](http://localhost:8080)
 
-2. Deploy the application on Kubernetes cluster.
+2.Deploy the application on Kubernetes cluster.
+All work releted to Kubernetes has been done using Google Kubernetes Engine.
+Ingress is used to expose the application to external users.
+It is required to install Ingress Nginx Controller first. You can do it using following command:
+
+```
+# Kubernetes command
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.6/deploy/static/provider/cloud/deploy.yaml
+```
+Then executing the following command:
+```kubectl apply -f k8s/running-app-deployment.yml -f k8s/running-app-svc.yml -f k8s/ingress-resource.yml```
+
+To get the public IP address you need to execute the command:
+```kubectl get ingress```
 
