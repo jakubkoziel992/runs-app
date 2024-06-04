@@ -17,6 +17,6 @@ The main purpose of this application was to use the knowledge about Kubernetes g
 
 1.Launching the application from the Docker container
 
-The application's image is available on DockerHub. To run the container with the application, use the below command:
+The application's image is available on [DockerHub](https://hub.docker.com/r/kozijakinfo/run-app/tags). To run the container with the application, use the below command:
 
-`docker container run -d --name running-app --rm -p 8080:8080 kozijakinfo/run-app:2.0`
+```docker container run -d --name running-app --rm -p 8080:8080 kozijakinfo/run-app:2.0```
