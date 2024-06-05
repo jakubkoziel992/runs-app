@@ -23,7 +23,7 @@ The project has included the following steps:
 
 **To run the application, you can use one of two methods.**
 
-1.Launching the application from the Docker container
+**1.Launching the application from the Docker container**
 
 The application's image is available on [DockerHub](https://hub.docker.com/r/kozijakinfo/run-app/tags). To run the container with the application, use the below command:
 
@@ -40,26 +40,36 @@ Command's output should be similar to:
 ![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/container_ls.png)
 
 The application will be available in your browser at [http://localhost:8080](http://localhost:8080)
+
 ![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/application.png)
 
-2.Deploy the application on Kubernetes cluster.
-All work releted to Kubernetes has been done using Google Kubernetes Engine.
-Ingress is used to expose the application to external users.
-It is required to install Ingress Nginx Controller first. You can do it using following command:
+**2.Deploy the application on Kubernetes cluster.**
+
+All work releted to Kubernetes has been done using Google Kubernetes Engine.\
+Ingress is used to expose the application to external users.\
+It is required to install Ingress Nginx Controller first. You can do it using following comman[[Id:
 
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.6/deploy/static/provider/cloud/deploy.yaml
 ```
-Then executing the following command:\
+Then executing the following command:
 
 ```
 kubectl apply -f k8s/running-app-deployment.yml -f k8s/running-app-svc.yml -f k8s/ingress-resource.yml
 ```
 
-To get the public IP address you need to execute the command:\
+To get the public IP address you need to execute the command:
 
 ```
 kubectl get ingress
 ```
+In my case the address is as follow.
+
+![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/ingress.png)
+
+The application will be available in browser using that IP.
+
+![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/ingress.png)
+
 
