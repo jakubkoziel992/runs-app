@@ -3,7 +3,7 @@
 ## Table of Contents
 
 * [General Information](#general-information)
-* [Project Description](#project- description)
+* [Project Description](#project-description)
 * [Technical Stack](#technical-stack)
 * [Installation and running](#installation-and-running/)
 * [CI/CD using GitLab](#ci/cd-using-gitlab)
@@ -84,7 +84,7 @@ In my case the address is as follow.
 
 The application will be available in browser using that IP.
 
-![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/ingress_application.png)
+![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/ingress_appliction.png)
 
 
 **To stop the application run commands:**
@@ -97,7 +97,7 @@ kubectl delete -f k8s/running-app-deployment.yml -f k8s/running-app-svc.yml -f k
 kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.6/deploy/static/provider/cloud/deploy.yaml
 ```
 
-## CI/CD with GitLab
+## CI/CD using GitLab
 
 TODO
 
