@@ -1,19 +1,21 @@
-# Running app
+## Running app
 
-# Table of Contents
-[General Information](#information)/
-[Project Description](#description)/
-[Technical Stack](#stack)/
-[Installation and running](#running/)
-[CI/CD using GitLab](#ci/cd)/
-[Contact](#contact)/
+## Table of Contents
 
-<a name="information"/>
-# General Information
+* [General Information](#general-information)
+* [Project Description](#project- description)
+* [Technical Stack](#technical-stack)
+* [Installation and running](#installation-and-running/)
+* [CI/CD using GitLab](#ci/cd-using-gitlab)
+* [Contact](#contact)
+
+## General Information
+
 It's a simple Vaadin application that allows the user to add information about their running performance.\
 The main purpose of this application was to use the knowledge about Kubernetes gained during learning this tool.
-<a name="description"/>
-# Project Description
+
+## Project Description
+
 The main purpose of this project is to use Kubernetes to deploy the application.
 The project has included the following steps:
 * Creating simple Vaadin application
@@ -21,15 +23,16 @@ The project has included the following steps:
 * Pushing the image to the repository(DockerHub)
 * Creating Kubernetes object files (Deployment, Service, Ingress) to deploy application on cluster (used Google Kubernetes Engine)
 * Creating Simple CI/CD pipeline using GitLab
-<a name="stack"/>
-# Technical Stack
+
+## Technical Stack
+
 * Vaadin
 * Docker
 * Kubernetes
 * Helm 
 * Gitlab
-<a name="running"/>
-# Installation and running
+
+## Installation and running
 
 **To run the application, you can use one of two methods.**
 
@@ -93,10 +96,11 @@ kubectl delete -f k8s/running-app-deployment.yml -f k8s/running-app-svc.yml -f k
 ```
 kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.6/deploy/static/provider/cloud/deploy.yaml
 ```
-<a name="ci/cd"/>
-# CI/CD with GitLab
+
+## CI/CD with GitLab
+
 TODO
 
-<a name="contact"/>
-# Contact
-[Jakub Koziel](https://www.linkedin.com/in/jakubkozie%C5%82/) - feel free to contact me!
+## Contact
+
+[Jakub Koziel](https://www.linkedin.com/in/jakubkozieł/) - feel free to contact me!
