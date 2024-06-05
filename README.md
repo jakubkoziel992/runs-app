@@ -1,13 +1,13 @@
 # Running app
 
 # Table of Contents
-[General Information](#information)
-[Project Description](#description)
-[Technical Stack](#stack)
-[Installation and running](#running)
-[CI/CD using GitLab](#ci/cd)
-[Contact](#contact)
-...snip...
+[General Information](#information)/
+[Project Description](#description)/
+[Technical Stack](#stack)/
+[Installation and running](#running/)
+[CI/CD using GitLab](#ci/cd)/
+[Contact](#contact)/
+
 <a name="information"/>
 # General Information
 It's a simple Vaadin application that allows the user to add information about their running performance.\
@@ -95,6 +95,8 @@ kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/con
 ```
 <a name="ci/cd"/>
 # CI/CD with GitLab
+TODO
 
 <a name="contact"/>
 # Contact
+[Jakub Koziel](https://www.linkedin.com/in/jakubkozie%C5%82/) - feel free to contact me!
