@@ -1,18 +1,18 @@
 # Running app
 
 # Table of Contents
-[General Information](#General Information)
-[Project Description](#Project Description)
-[Technical Stack](#Technical Stack)
-[Installation and running](#Installation and running)
-[CI/CD using GitLab](#CI/CD using Gitlab)
-[Contact](#Contact)
-
-<a name="General Information"/>
+[General Information](#information)
+[Project Description](#description)
+[Technical Stack](#stack)
+[Installation and running](#running)
+[CI/CD using GitLab](#ci/cd)
+[Contact](#contact)
+...snip...
+<a name="information"/>
 # General Information
 It's a simple Vaadin application that allows the user to add information about their running performance.\
 The main purpose of this application was to use the knowledge about Kubernetes gained during learning this tool.
-<a name="Project Description"/>
+<a name="description"/>
 # Project Description
 The main purpose of this project is to use Kubernetes to deploy the application.
 The project has included the following steps:
@@ -21,14 +21,14 @@ The project has included the following steps:
 * Pushing the image to the repository(DockerHub)
 * Creating Kubernetes object files (Deployment, Service, Ingress) to deploy application on cluster (used Google Kubernetes Engine)
 * Creating Simple CI/CD pipeline using GitLab
-<a name="Technical Stack"/>
+<a name="stack"/>
 # Technical Stack
 * Vaadin
 * Docker
 * Kubernetes
 * Helm 
 * Gitlab
-<a name="Intallation and running"/>
+<a name="running"/>
 # Installation and running
 
 **To run the application, you can use one of two methods.**
@@ -93,8 +93,8 @@ kubectl delete -f k8s/running-app-deployment.yml -f k8s/running-app-svc.yml -f k
 ```
 kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.6/deploy/static/provider/cloud/deploy.yaml
 ```
-<a name="CI/CD with GitLab"/>
+<a name="ci/cd"/>
 # CI/CD with GitLab
 
-<a name="Contact"/>
+<a name="contact"/>
 # Contact
