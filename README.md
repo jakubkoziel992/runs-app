@@ -1,5 +1,13 @@
 # Running app
 
+# Table of Contents
+-[General Information](# General Information)
+-[Project Description](# Project Description)
+-[Technical Stack](# Technical Stack)
+-[Installation and running](# Installation and running)
+-[CI/CD using GitLab](# CI/CD using Gitlab)
+-[Contact](# Contact)
+
 # General Information
 It's a simple Vaadin application that allows the user to add information about their running performance.\
 The main purpose of this application was to use the knowledge about Kubernetes gained during learning this tool.
@@ -45,7 +53,8 @@ The application will be available in your browser at [http://localhost:8080](htt
 
 **2.Deploy the application on Kubernetes cluster.**
 
-All work releted to Kubernetes has been done using Google Kubernetes Engine.\
+**All work releted to Kubernetes is done using Google Kubernetes Engine.\**
+
 Ingress is used to expose the application to external users.\
 It is required to install Ingress Nginx Controller first. You can do it using following comman[[Id:
 
@@ -70,6 +79,20 @@ In my case the address is as follow.
 
 The application will be available in browser using that IP.
 
-![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/ingress.png)
+![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/ingress_application.png)
 
 
+**To stop the application run commands:**
+
+```
+kubectl delete -f k8s/running-app-deployment.yml -f k8s/running-app-svc.yml -f k8s/ingress-resource.yml
+```
+
+```
+kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.6/deploy/static/provider/cloud/deploy.yaml
+```
+
+# CI/CD with Gitlab
+
+
+# Contact
