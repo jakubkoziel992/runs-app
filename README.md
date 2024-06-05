@@ -5,8 +5,8 @@
 * [General Information](#general-information)
 * [Project Description](#project-description)
 * [Technical Stack](#technical-stack)
-* [Installation and running](#installation-and-running/)
-* [CI/CD using GitLab](#ci/cd-using-gitlab)
+* [Installation and running](#installation-and-running)
+* [CICD using GitLab](#cicd-using-gitlab)
 * [Contact](#contact)
 
 ## General Information
@@ -97,7 +97,7 @@ kubectl delete -f k8s/running-app-deployment.yml -f k8s/running-app-svc.yml -f k
 kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.6/deploy/static/provider/cloud/deploy.yaml
 ```
 
-## CI/CD using GitLab
+## CICD using GitLab
 
 TODO
 
