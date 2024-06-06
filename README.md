@@ -50,6 +50,7 @@ To check that the container has been created correctly and is working, use the f
 docker container ls
 ```
 Command's output should be similar to:
+
 ![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/container_ls.png)
 
 The application will be available in your browser at [http://localhost:8080](http://localhost:8080)
@@ -58,7 +59,7 @@ The application will be available in your browser at [http://localhost:8080](htt
 
 **2.Deploy the application on Kubernetes cluster.**
 
-**All work releted to Kubernetes is done using Google Kubernetes Engine.\**
+**All work releted to Kubernetes is done using Google Kubernetes Engine.**
 
 Ingress is used to expose the application to external users.\
 It is required to install Ingress Nginx Controller first. You can do it using following comman[[Id:
@@ -99,7 +100,11 @@ kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/con
 
 ## CICD using GitLab
 
-TODO
+I used GitLab to create a CI/CD pipeline, which cosists of two steps:
+* build Docker Image and publish to registry(internal Gitlab registry)
+* deployment of application in the Kubernetes cluster
+
+Here you can check the pipeline configuration file [gitlab](https://github.com/jakubkoziel992/runs-app/blob/master/.gitlab-ci.yml)
 
 ## Contact
 
