@@ -100,9 +100,15 @@ kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/con
 
 ## CICD using GitLab
 
-I used GitLab to create a CI/CD pipeline, which cosists of two steps:
+I used GitLab to create a CI/CD pipeline, which consists of two steps:
 * build Docker Image and publish to registry(internal Gitlab registry)
 * deployment of application in the Kubernetes cluster
+
+Pipeline is run after every push to the GitLab repository.
+![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/pipeline.png)
+
+
+
 
 Here you can check the pipeline configuration file [gitlab](https://github.com/jakubkoziel992/runs-app/blob/master/.gitlab-ci.yml)
 
