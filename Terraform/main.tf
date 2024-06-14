@@ -13,7 +13,15 @@ provider "google" {
   zone = "europe-central2-a"
 }
 
-resource "google_storage_bucket" "GCS1" {
-  name = "first_bucket_from_jk"
+resource "google_container_cluster" "gke_cluster" {
+  name = "running-app-cluster"
   location = "europe-central2"
+
+  initial_node_count = 1
+  node_config {
+    machine_type = "e2-medium"
+    disk_size_gb = 10
+  }
+
+  deletion_protection = false
 }
