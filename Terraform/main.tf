@@ -10,16 +10,16 @@ terraform {
 provider "google" {
   project = "runs-app-terraform"
   region = "europe-central2"
-  zone = "europe-central2-a"
+  zone = var.my_zone
 }
 
 resource "google_container_cluster" "gke_cluster" {
   name = "running-app-cluster"
-  location = "europe-central2"
+  location = var.my_zone
 
   initial_node_count = 1
   node_config {
-    machine_type = "e2-medium"
+    machine_type = var.instance_type
     disk_size_gb = 10
   }
 
