@@ -8,4 +8,13 @@ variable "instance_type" {
   default = "e2-medium"
 }
 
+variable "disk_size" {
+  type = string
+  default = 10
+}
+
+variable "my_nodes" {
+ type = string
+ default = 0
+}
 
