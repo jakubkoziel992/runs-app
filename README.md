@@ -40,10 +40,9 @@ The project has included the following steps:
 The cluster was created using IaaC, which facilitates automation and makes it easier to reuse.
 Terraform was used for this task.
 
-The code used to create the Google Kubernetes Cluster(GKE) can be viewed here [Terraform](https://github.com/jakubkoziel992/runs-app/tree/master/Terraform)
+The code used to create the Google Kubernetes Cluster (GKE) can be viewed here [Terraform](https://github.com/jakubkoziel992/runs-app/tree/master/Terraform)
 
-**Important information**
-I used the provider configuration approach as an environment variable. 
+**I used the provider configuration approach as an environment variable.**\ 
 You can find details in [.env](https://github.com/jakubkoziel992/runs-app/blob/master/Terraform/.env)
 
 **Steps to be taken to provision GKE using Terraform:**
