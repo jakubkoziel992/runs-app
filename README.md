@@ -61,6 +61,7 @@ You can find details in [.env](https://github.com/jakubkoziel992/runs-app/blob/m
    terraform apply
 ```
 Terraform apply sucessfully completed.
+
 ![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/terraform_apply.png)
 
 GKE is visible from GCP console level.
@@ -73,7 +74,7 @@ To avoid charges, I recommend removing the GKE after the work is completed.
    terraform destroy
 ```
 
-For my purposes, I reduce the number of claster noded to 0 which reduces the cost significantly.
+For my purposes, I reduce the number of cluster nodes to 0 which reduces the cost significantly.
 ```bash
    terraform apply -var="my_nodes=0"
 ```
