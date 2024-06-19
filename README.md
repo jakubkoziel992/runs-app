@@ -5,6 +5,7 @@
 * [General Information](#general-information)
 * [Project Description](#project-description)
 * [Technical Stack](#technical-stack)
+* [Provisioning Kubernetes Cluster](#provisioning-kubernetes-cluster)
 * [Installation and running](#installation-and-running)
 * [CICD using GitLab](#cicd-using-gitlab)
 * [Contact](#contact)
@@ -19,6 +20,7 @@ The main purpose of this application was to use the knowledge about Kubernetes g
 The main purpose of this project is to use Kubernetes to deploy the application.
 The project has included the following steps:
 * Creating simple Vaadin application
+* Provisioning Google Kubernetes Cluster using Terraform
 * Creating a Dockerfile to build an application image according to best practices (multi-stage building, non-root user)
 * Pushing the image to the repository(DockerHub)
 * Creating Kubernetes object files (Deployment, Service, Ingress) to deploy application on cluster (used Google Kubernetes Engine)
@@ -29,8 +31,55 @@ The project has included the following steps:
 * Vaadin
 * Docker
 * Kubernetes
-* Helm 
+* Helm
+* Terraform
 * Gitlab
+
+## Provision Kubernetes Cluster
+
+The cluster was created using IaaC, which facilitates automation and makes it easier to reuse.
+Terraform was used for this task.
+
+The code used to create the Google Kubernetes Cluster(GKE) can be viewed here [Terraform](https://github.com/jakubkoziel992/runs-app/tree/master/Terraform)
+
+**Important information**
+I used the provider configuration approach as an environment variable. You can find details in [.env](https://github.com/jakubkoziel992/runs-app/blob/master/Terraform/.env)
+
+Steps to be taken to provision GKE using Terraform
+
+**1.Terraform Installation**
+**2.Loading environment variables**
+```bash
+   cd Terraform
+   source .env
+```
+**3.Execution of Terraform commands**
+```bash
+   terraform init
+   terraform plan
+   terraform apply
+```
+Terraform apply sucessfully completed.
+![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/terraform_apply.png)
+
+GKE is visible from GCP console level
+
+
+![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/gke_console.png)
+
+**4. GKE removal**
+To avoid charges, I recommend removing the GKE after the work is completed.
+```bash
+   terraform destroy
+```
+
+For my purposes, I reduce the number of claster noded to 0 which reduces the cost significantly.
+```bash
+   terraform apply -var="my_nodes=0"
+```
+
+![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/gke_console2.png)
+
 
 ## Installation and running
 
