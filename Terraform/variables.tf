@@ -1,4 +1,4 @@
-variable "my_zone" {
+variable "my_location" {
   description = "location used in projects"
   type = string
   default = "europe-central2"

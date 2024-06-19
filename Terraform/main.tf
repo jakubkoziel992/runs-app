@@ -13,14 +13,11 @@ terraform {
 }
 
 provider "google" {
-  project = "runs-app-terraform"
-  region = "europe-central2"
-  zone = var.my_zone
 }
 
 resource "google_container_cluster" "gke_cluster" {
   name = "running-app-cluster"
-  location = var.my_zone
+  location = var.my_location
 
   remove_default_node_pool = true
   initial_node_count = 1
