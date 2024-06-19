@@ -35,7 +35,7 @@ The project has included the following steps:
 * Terraform
 * Gitlab
 
-## Provision Kubernetes Cluster
+## Provisioning Kubernetes Cluster
 
 The cluster was created using IaaC, which facilitates automation and makes it easier to reuse.
 Terraform was used for this task.
@@ -43,11 +43,12 @@ Terraform was used for this task.
 The code used to create the Google Kubernetes Cluster(GKE) can be viewed here [Terraform](https://github.com/jakubkoziel992/runs-app/tree/master/Terraform)
 
 **Important information**
-I used the provider configuration approach as an environment variable. You can find details in [.env](https://github.com/jakubkoziel992/runs-app/blob/master/Terraform/.env)
+I used the provider configuration approach as an environment variable. 
+You can find details in [.env](https://github.com/jakubkoziel992/runs-app/blob/master/Terraform/.env)
 
-Steps to be taken to provision GKE using Terraform
+**Steps to be taken to provision GKE using Terraform:**
 
-**1.Terraform Installation**
+**1.Terraform Installation**\
 **2.Loading environment variables**
 ```bash
    cd Terraform
@@ -62,8 +63,7 @@ Steps to be taken to provision GKE using Terraform
 Terraform apply sucessfully completed.
 ![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/terraform_apply.png)
 
-GKE is visible from GCP console level
-
+GKE is visible from GCP console level.
 
 ![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/gke_console.png)
 
