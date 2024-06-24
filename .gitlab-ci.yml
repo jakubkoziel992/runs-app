@@ -27,6 +27,4 @@ deploy:
     - kubectl config set-credentials gitlab --token="${TOKEN}"
     - kubectl config set-context default --cluster=k8s --user=gitlab
     - kubectl config use-context default
-    - sed -i "s/<VERSION>/${CI_COMMIT_SHORT_SHA}/g" ./CI-CD/running-app-deployment.yml
-    - sed -i "s|<IMAGE>|${CI_REGISTRY_IMAGE}/$IMAGE_NAME|g" ./CI-CD/running-app-deployment.yml
-    - kubectl apply -f ./CI-CD/running-app-deployment.yml
+    - helm install running-app ./Helm/running-app-custom-chart --set image.repository=${CI_REGISTRY_IMAGE} --set image.name=${IMAGE_NAME} --set image.tag=${CI_COMMIT_SHORT_SHA}
