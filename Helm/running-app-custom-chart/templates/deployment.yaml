@@ -17,21 +17,14 @@ spec:
       labels:
         app:  {{.Values.appName }}
     spec:
-      #volumes:
-      #  - name: running-volume
-      #    persistentVolumeClaim:
-      #      claimName: ps-pvc
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8}}
       automountServiceAccountToken: false
       containers:
-        - name: {{ .Values.appName }}
-          image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
-          ports:
-            - containerPort: 8080
-          resources:
-            {{ toYaml .Values.resources | indent 12 }}
-            # volumeMounts:
-            #- mountPath: /var/tmp/
-          #name: running-volume
+      - name: {{ .Values.appName }}
+        image: {{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}
+        ports:
+          - containerPort: 8080
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
 
