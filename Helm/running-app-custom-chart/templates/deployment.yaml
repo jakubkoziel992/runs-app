@@ -17,6 +17,8 @@ spec:
       labels:
         app:  {{.Values.appName }}
     spec:
+      imagePullSecrets:
+        - name: gitlabrunningsecret
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8}}
       automountServiceAccountToken: false
