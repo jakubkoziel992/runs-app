@@ -1,0 +1,51 @@
+appName: running-app
+replicaCount: 1
+
+image:
+  repository: kozijakinfo
+  name: run-app
+  tag: 2:0
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 500
+  runAsGroup: 501
+
+resources:
+  limits:
+    cpu: 800m
+    memory: 600Mi
+  requests:
+    cpu: 400m
+    memory: 300Mi
+
+
+
+service:
+  name: running-app-clusterip-svc
+  ports:
+    port: 8080
+  spec:
+    type: ClusterIP
+
+ingress:
+  enabled: true
+  name: ingress-resource
+  ingressClassName: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            # pathType: ImplementationSpecific
+            backend:
+              service:
+                name: running-app-clusterip-svc
+                port:
+                  number: 8080
+
+
+
