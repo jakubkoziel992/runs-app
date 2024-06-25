@@ -19,8 +19,6 @@ resources:
     cpu: 400m
     memory: 300Mi
 
-
-
 service:
   name: running-app-clusterip-svc
   ports:
@@ -28,6 +26,8 @@ service:
   spec:
     type: ClusterIP
 
+imagePullSecrets:
+  name: mysecret  
 ingress:
   enabled: true
   name: ingress-resource
