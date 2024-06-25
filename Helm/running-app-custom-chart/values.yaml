@@ -28,6 +28,7 @@ service:
 
 imagePullSecrets:
   name: mysecret  
+
 ingress:
   enabled: true
   name: ingress-resource
@@ -37,15 +38,14 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /
   rules:
     - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            # pathType: ImplementationSpecific
-            backend:
-              service:
-                name: running-app-clusterip-svc
-                port:
-                  number: 8080
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: running-app-clusterip-svc
+              port:
+                number: 8080
 
 
 

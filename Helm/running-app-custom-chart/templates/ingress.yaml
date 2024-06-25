@@ -1,0 +1,34 @@
+{{- if .Values.ingress.enabled -}}
+  {{- $svcPort := .Values.service.ports.port -}}
+  {{- $svcName:= .Values.service.name -}}
+  {{- if semverCompare ">=1.19-0" .Capabilities.KubeVersion.GitVersion -}}
+apiVersion: networking.k8s.io/v1
+  {{- else if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
+apiVersion: networking.k8s.io/v1beta1
+  {{- else -}}
+apiVersion: extensions/v1beta1
+  {{- end }}
+kind: Ingress
+metadata:
+  name: {{ .Values.ingress.name}}
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  ingressClassName: {{ .Values.ingress.ingressClassName }}
+  rules:
+    {{- range .Values.ingress.rules }}
+  - http:
+      paths:
+        {{- range .paths }}
+      - path: {{ .path }}
+        pathType: {{ .pathType }}
+        backend:
+          service:
+            name: {{ $svcName }}
+            port:
+              number: {{ $svcPort }}
+      {{- end }}
+    {{- end }}
+{{- end }}    
