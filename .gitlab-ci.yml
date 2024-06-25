@@ -27,7 +27,6 @@ deploy:
     - kubectl config set-credentials gitlab --token="${TOKEN}"
     - kubectl config set-context default --cluster=k8s --user=gitlab
     - kubectl config use-context default
-    - kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.6/deploy/static/provider/cloud/deploy.yaml
     - helm upgrade running-app ./Helm/running-app-custom-chart --install 
       --set image.repository=${CI_REGISTRY_IMAGE} 
       --set image.name=${IMAGE_NAME} 
