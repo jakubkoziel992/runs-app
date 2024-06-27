@@ -11,14 +11,13 @@
 * [Contact](#contact)
 
 ## General Information
-
-It's a simple Vaadin application that allows the user to add information about their running performance.\
-The main purpose of this application was to use the knowledge about Kubernetes gained during learning this tool.
+This is a simple Vaadin application that lets users add information about their running performance. 
+The main purpose of this application is to apply the knowledge gained about Kubernetes while learning this tool.
 
 ## Project Description
+The main purpose of this project is to use Kubernetes to deploy the application. 
+The project involves the following steps:
 
-The main purpose of this project is to use Kubernetes to deploy the application.
-The project has included the following steps:
 * Creating simple Vaadin application
 * Provisioning Google Kubernetes Cluster using Terraform
 * Creating a Dockerfile to build an application image according to best practices (multi-stage building, non-root user)
@@ -34,11 +33,11 @@ The project has included the following steps:
 * Helm
 * Terraform
 * Gitlab
+* Bash
 
 ## Provisioning Kubernetes Cluster
 
-The cluster was created using IaaC, which facilitates automation and makes it easier to reuse.
-Terraform was used for this task.
+The cluster was created using Infrastructure as Code (IaaC) to facilitate automation and reusability. Terraform was used for this task.
 
 The code used to create the Google Kubernetes Cluster (GKE) can be viewed here [Terraform](https://github.com/jakubkoziel992/runs-app/tree/master/Terraform)
 
@@ -83,7 +82,7 @@ For my purposes, I reduce the number of cluster nodes to 0 which reduces the cos
 
 ## Installation and running
 
-**To run the application, you can use one of two methods.**
+**To run the application, you can use one of three methods.**
 
 **1.Launching the application from the Docker container**
 
@@ -137,7 +136,7 @@ The application will be available in browser using that IP.
 ![Image](https://raw.githubusercontent.com/jakubkoziel992/runs-app/master/.github/ingress_appliction.png)
 
 
-**To stop the application run commands:**
+**To stop the application run following commands:**
 
 ```
 kubectl delete -f k8s/running-app-deployment.yml -f k8s/running-app-svc.yml -f k8s/ingress-resource.yml
@@ -145,7 +144,19 @@ kubectl delete -f k8s/running-app-deployment.yml -f k8s/running-app-svc.yml -f k
 
 ```
 kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.6/deploy/static/provider/cloud/deploy.yaml
+
+**3.Deploy the application on Kubernetes cluster using Helm Chart.**
+While in the main directory of the application, run the following commands:
+```bash
+cd Helm
+helm install running-app ./running-app-custom-chart
 ```
+**To stop the application run following commands:**
+
+```bash
+helm uninstall running-app
+```
+
 
 ## CICD using GitLab
 
