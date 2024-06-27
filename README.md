@@ -41,7 +41,7 @@ The cluster was created using Infrastructure as Code (IaaC) to facilitate automa
 
 The code used to create the Google Kubernetes Cluster (GKE) can be viewed here [Terraform](https://github.com/jakubkoziel992/runs-app/tree/master/Terraform)
 
-**I used the provider configuration approach as an environment variable.**\ 
+**I used the provider configuration approach as an environment variable.** 
 You can find details in [.env](https://github.com/jakubkoziel992/runs-app/blob/master/Terraform/.env)
 
 **Steps to be taken to provision GKE using Terraform:**
@@ -110,7 +110,7 @@ The application will be available in your browser at [http://localhost:8080](htt
 **All work releted to Kubernetes is done using Google Kubernetes Engine.**
 
 Ingress is used to expose the application to external users.\
-It is required to install Ingress Nginx Controller first. You can do it using following comman[[Id:
+It is required to install Ingress Nginx Controller first. You can do it using following command:
 
 
 ```
@@ -144,8 +144,13 @@ kubectl delete -f k8s/running-app-deployment.yml -f k8s/running-app-svc.yml -f k
 
 ```
 kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.6/deploy/static/provider/cloud/deploy.yaml
+```
 
 **3.Deploy the application on Kubernetes cluster using Helm Chart.**
+
+Helm is a powerful package manager for Kubernetes that streamlines the deployment and management of applications.
+The Helm Chart configuration can be viewed here  [.env](https://github.com/jakubkoziel992/runs-app/tree/master/Helm/running-app-custom-chart)
+
 While in the main directory of the application, run the following commands:
 ```bash
 cd Helm
